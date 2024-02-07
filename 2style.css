@@ -7,7 +7,7 @@ body {
 header,
 footer {
     text-align: center;
-    background-color: #a1a1a1;
+    background-image: linear-gradient(to right, white 0%, #a1a1a1 50%);
     color: rgb(0, 0, 0);
     padding: 10px;
 }
@@ -64,10 +64,11 @@ footer {
     flex: 1;
     /* Jede Box soll gleich viel Platz einnehmen */
     padding: 10px;
-    background-color: #ffdfbdea;
+    background-image: linear-gradient(to top right, rgb(251, 198, 154) 0%, #ffdfbdea 20%);
     border: 20px solid;
     border-color: white;
     align-items: center;
+    border-radius: 10%;
 }
 
 .api {
@@ -100,6 +101,11 @@ h3 {
     color: white;
     padding: 10px;
     font-size: 30px;
+}
+
+p {
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .photo {

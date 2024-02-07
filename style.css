@@ -7,7 +7,7 @@ body {
 header,
 footer {
     text-align: center;
-    background-color: #a1a1a1;
+    background-image: linear-gradient(to right, white 0%, #a1a1a1 50%);
     color: rgb(0, 0, 0);
     padding: 10px;
 }

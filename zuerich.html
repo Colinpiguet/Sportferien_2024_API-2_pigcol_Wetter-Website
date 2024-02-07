@@ -36,17 +36,19 @@
             <div id="zuerich-info">Weather information is loading...</div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script>
-                var city = 'Zurich';
                 $.ajax({
                     method: 'GET',
-                    url: 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=f39c7ffc405fe7cfff9462730f188fb1',
-                    contentType: 'application/json',
+                    url: 'https://api.openweathermap.org/data/2.5/weather?q=Zurich&appid=f39c7ffc405fe7cfff9462730f188fb1',
+                    dataType: 'json', // Setzen Sie dataType auf 'json', um die Daten automatisch zu parsen
                     success: function (result) {
+                        console.log(result); // Überprüfen Sie die Antwort in der Konsole
                         var weatherHtml = '<h2>' + 'WEATHER</h2>';
                         var temperatureCelsius = (result.main.temp - 273.15).toFixed(2);
-                        weatherHtml += '<p>Temperature: ' + temperatureCelsius + '°C</p>';
-                        weatherHtml += '<p>Wind Speed: ' + result.wind.speed + 'm/s</p>';
-                        weatherHtml += '<p>Humidity: ' + result.main.humidity + '%</p>';
+                        weatherHtml += '<p>main weather: ' + result.weather[0].main + '</p>';
+                        weatherHtml += '<p>description: ' + result.weather[0].description + '</p>';
+                        weatherHtml += '<p>temperature: ' + temperatureCelsius + '°C</p>';
+                        weatherHtml += '<p>wind speed: ' + result.wind.speed + 'km/h</p>';
+                        weatherHtml += '<p>humidity: ' + result.main.humidity + '%</p>';
                         $('#zuerich-info').html(weatherHtml);
                     },
                     error: function ajaxError(jqXHR) {
@@ -56,6 +58,7 @@
                 });
             </script>
         </div>
+
         <!-- - - - - - - - - - - - Erste Spalte Ende - - - - - - - - - - - -->
 
         <!-- START clock element with all utilities -->

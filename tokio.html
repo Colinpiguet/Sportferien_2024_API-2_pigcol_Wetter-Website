@@ -8,34 +8,118 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="2style.css" />
     <title>Wetter-Website</title>
 </head>
 
 <body>
     <!-- - - - - - - - - - - - Kopfzeile Start - - - - - - - - - - - -->
     <header>
-
         <!-- Text Start -->
         <div>
-            <div class="home"><a href="index.html" title="Home"><img src="images/home.png"></a></div>
-            <h1>Tokio</h1>
+            <div class="navigation">
+                <div class="links"><a href="london.html" title="Links"><img src="images/links.png"></a></div>
+                <div class="home"><a href="index.html" title="Home"><img src="images/home.png"></a></div>
+                <div class="rechts"><a href="index.html" title="Rechts"><img src="images/rechts.png"></a></div>
+            </div>
+            <h3>Tokio</h3>
         </div>
         <!-- Text Ende -->
+    </header>
+    <!-- - - - - - - - - - - - Kopfzeile Ende - - - - - - - - - - - -->
 
-        <!-- - - - - - - - - - - - Kopfzeile Ende - - - - - - - - - - - -->
+    <div class='photo'><img src="images/newYorkLang.jpg"></div>
 
-        <!-- - - - - - - - - - - - Fusszeile Start - - - - - - - - - - - -->
-        <footer>
-            <!-- Text Start -->
-            <div>
-                <h1>Sportferienprojekt 2024 von Colin Piguet</h1>
+    <div class="container">
+        <!-- - - - - - - - - - - - Erste Spalte Start - - - - - - - - - - - -->
+        <div class="box api">
+            <div id="zuerich-info">Weather information is loading...</div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script>
+                $.ajax({
+                    method: 'GET',
+                    url: 'https://api.openweathermap.org/data/2.5/weather?q=Tokyo&appid=f39c7ffc405fe7cfff9462730f188fb1',
+                    dataType: 'json', // Setzen Sie dataType auf 'json', um die Daten automatisch zu parsen
+                    success: function (result) {
+                        console.log(result); // Überprüfen Sie die Antwort in der Konsole
+                        var weatherHtml = '<h2>' + 'WEATHER</h2>';
+                        var temperatureCelsius = (result.main.temp - 273.15).toFixed(2);
+                        weatherHtml += '<p>main weather: ' + result.weather[0].main + '</p>';
+                        weatherHtml += '<p>description: ' + result.weather[0].description + '</p>';
+                        weatherHtml += '<p>temperature: ' + temperatureCelsius + '°C</p>';
+                        weatherHtml += '<p>wind speed: ' + result.wind.speed + 'km/h</p>';
+                        weatherHtml += '<p>humidity: ' + result.main.humidity + '%</p>';
+                        $('#zuerich-info').html(weatherHtml);
+                    },
+                    error: function ajaxError(jqXHR) {
+                        console.error('Error: ', jqXHR.responseText);
+                        $('#zuerich-info').html('Error while loading the weather information');
+                    }
+                });
+            </script>
+        </div>
+
+
+        <!-- - - - - - - - - - - - Erste Spalte Ende - - - - - - - - - - - -->
+
+        <!-- START clock element with all utilities -->
+        <div class="box clock">
+            <div class="outer-clock-face">
+                <div class="marking marking-one"></div>
+                <div class="marking marking-two"></div>
+                <div class="marking marking-three"></div>
+                <div class="marking marking-four"></div>
+                <div class="inner-clock-face">
+                    <div class="point"></div>
+                    <div class="hand hour-hand"></div>
+                    <div class="hand min-hand"></div>
+                    <div class="hand second-hand"></div>
+                </div>
             </div>
-            <!-- Text Ende -->
-        </footer>
-        <!-- - - - - - - - - - - - Fusszeile Ende - - - - - - - - - - - -->
+        </div>
+        <!-- END clock element -->
 
-        <script src="weather.js"></script>
+        <script src="clockZh.js"></script>
+
+        <!-- - - - - - - - - - - - Zweite Spalte Start - - - - - - - - - - - -->
+        <div class="box time">
+            <div id="zuerich-time">Time information is loading...</div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script>
+                var city = 'Tokyo';
+                $.ajax({
+                    method: 'GET',
+                    url: 'https://api.api-ninjas.com/v1/city?name=' + city,
+                    headers: { 'X-Api-Key': 'xFpGPYfW6e0AbBuUqMSMXQ==iksODiXlk7YwgmL7' },
+                    contentType: 'application/json',
+                    success: function (result) {
+                        var timeHtml = '<h2>' + ' CITY </h2>';
+                        timeHtml += '<p>country: ' + result[0].country + '</p>';
+                        timeHtml += '<p>population: ' + result[0].population + '</p>';
+                        timeHtml += '<p>is capital: ' + result[0].is_capital + '</p>';
+                        $('#zuerich-time').html(timeHtml);
+                    },
+                    error: function ajaxError(jqXHR) {
+                        console.error('Error: ', jqXHR.responseText);
+                        $('#zuerich-time').html('Error while loading the timeinformation');
+                    }
+                });
+            </script>
+        </div>
+        <!-- - - - - - - - - - - - Zweite Spalte Ende - - - - - - - - - - - -->
+
+    </div>
+
+    <!-- - - - - - - - - - - - Fusszeile Start - - - - - - - - - - - -->
+    <footer>
+        <!-- Text Start -->
+        <div>
+            <h1>Sportferienprojekt 2024 von Colin Piguet</h1>
+        </div>
+        <!-- Text Ende -->
+    </footer>
+    <!-- - - - - - - - - - - - Fusszeile Ende - - - - - - - - - - - -->
+
 </body>
 
 </html>
