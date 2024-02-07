@@ -16,6 +16,7 @@ section {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    background-color: aliceblue;
 }
 
 .city {
@@ -39,11 +40,59 @@ section {
     transform: scale(1.05);
 }
 
-
-
 @media only screen and (max-width: 1200px) {
     .city {
         flex: 1 1 100%;
         margin: 10px 0;
+    }
+}
+
+h3 {
+    text-align: center;
+    background-color: #000000be;
+    color: white;
+    padding: 10px;
+    font-size: 30px;
+}
+
+/* Navigation mit Pfeil- und Listenicons */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    /* Alle Elemente gleichmäßig verteilen */
+    align-items: center;
+    /* Elemente zentrieren vertikal */
+}
+
+.navigation a:hover img {
+    transition: 0.5s;
+    opacity: 0.5;
+}
+
+.links img,
+.rechts img {
+    height: 70px;
+    width: 70px;
+}
+
+@media only screen and (max-width: 720px) {
+    .navigation {
+        flex-direction: column;
+        /* Auf Stapel umschalten, wenn Bildschirm zu klein */
+        align-items: flex-start;
+        /* Links ausrichten, wenn aufgestapelt */
+    }
+
+    .home img,
+    .links img,
+    .rechts img {
+        height: auto;
+        /* Automatische Höhe für kleine Bildschirme */
+        width: auto;
+        /* Automatische Breite für kleine Bildschirme */
+        max-height: 70px;
+        /* Maximale Höhe für kleine Bildschirme */
+        max-width: 70px;
+        /* Maximale Breite für kleine Bildschirme */
     }
 }

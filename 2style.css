@@ -1,0 +1,235 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+header,
+footer {
+    text-align: center;
+    background-color: #a1a1a1;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------*/
+/* Navigation*/
+
+/* Navigation mit Pfeil- und Listenicons */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    /* Alle Elemente gleichmässig verteilen */
+    align-items: center;
+    /* Elemente zentrieren vertikal */
+}
+
+.navigation a:hover img {
+    transition: 0.5s;
+    opacity: 0.5;
+}
+
+.links img,
+.rechts img {
+    height: 70px;
+    width: 70px;
+}
+
+@media only screen and (max-width: 720px) {
+    .navigation {
+        flex-direction: column;
+        /* Auf Stapel umschalten, wenn Bildschirm zu klein */
+        align-items: flex-start;
+        /* Links ausrichten, wenn aufgestapelt */
+    }
+
+    .home img,
+    .links img,
+    .rechts img {
+        height: auto;
+        width: auto;
+        /* Automatische Höhe und Breite für kleine Bildschirme */
+        max-height: 70px;
+        max-width: 70px;
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------*/
+.container {
+    display: flex;
+    /* Flexbox-Container */
+}
+
+.box {
+    flex: 1;
+    /* Jede Box soll gleich viel Platz einnehmen */
+    padding: 10px;
+    background-color: #ffdfbdea;
+    border: 20px solid;
+    border-color: white;
+    align-items: center;
+}
+
+.api {
+    text-align: center;
+    background-color: #ffdfbdea;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    justify-content: center;
+    display: flex;
+}
+
+.time {
+    text-align: center;
+    background-color: #ffdfbdea;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    justify-content: center;
+    display: flex;
+}
+
+h2 {
+    text-decoration: underline;
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h3 {
+    text-align: center;
+    background-color: #000000be;
+    color: white;
+    padding: 10px;
+    font-size: 30px;
+}
+
+.photo {
+    text-align: center;
+    border-left: 150px solid white;
+    border-right: 150px solid white;
+    border-bottom: 40px solid white;
+    border-top: 60px solid white;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+
+/* Styles für den Uhr-Container */
+.clock {
+    position: relative;
+    width: 100vmin;
+    height: 60vmin;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/* Styles für relative;äußeren Kreis des Zifferblatts */
+.outer-clock-face {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    border: 4vmin solid #333;
+    border-radius: 50%;
+}
+
+/* Styles für die Uhrmarkierungen (Stundenindikatoren) */
+.marking {
+    position: absolute;
+    background: #fffefe;
+    width: 0.8vmin;
+    height: 3.2vmin;
+    top: 40%;
+    left: 50%;
+    transform-origin: 50% 100%;
+    z-index: 1;
+}
+
+/* Spezifische Stile für einzelne Markierungen */
+.marking-one {
+    top: 85%;
+}
+
+.marking-two {
+    top: 5%;
+}
+
+.marking-three {
+    left: 85%;
+    transform: rotate(90deg);
+}
+
+.marking-four {
+    left: 15%;
+    transform: rotate(270deg);
+}
+
+/* Styles für den inneren Kreis des Zifferblatts */
+.inner-clock-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.point {
+    position: relative;
+    width: 4vmin;
+    height: 4vmin;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: white;
+    border-radius: 100px;
+}
+
+/* Uhrzeiger (Stunden-, Minuten- und Sekundenzeiger) */
+.hand {
+    position: absolute;
+    background: #fffcfc;
+    transform-origin: 50% 100%;
+}
+
+/* Stundenzeiger */
+.hour-hand {
+    width: 2vmin;
+    height: 45%;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Minutenzeiger */
+.min-hand {
+    width: 1.2vmin;
+    height: 45%;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Sekundenzeiger */
+.second-hand {
+    width: 0.8vmin;
+    height: 45%;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+/*Damit die Grösse angepasst wird wenn man das Fenster verkleinert*/
+@media only screen and (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .box {
+        flex: 1 1 auto;
+    }
+}
