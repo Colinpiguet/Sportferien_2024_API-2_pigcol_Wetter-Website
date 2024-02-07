@@ -33,25 +33,25 @@
     <div class="container">
         <!-- - - - - - - - - - - - Erste Spalte Start - - - - - - - - - - - -->
         <div class="box api">
-            <div id="zuerich-info">Weatherinformation is loading...</div>
+            <div id="zuerich-info">Weather information is loading...</div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script>
-                var city = 'Zürich'
+                var city = 'Zurich';
                 $.ajax({
                     method: 'GET',
-                    url: 'https://api.api-ninjas.com/v1/weather?city=' + city,
-                    headers: { 'X-Api-Key': 'xFpGPYfW6e0AbBuUqMSMXQ==iksODiXlk7YwgmL7' },
+                    url: 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=f39c7ffc405fe7cfff9462730f188fb1',
                     contentType: 'application/json',
                     success: function (result) {
-                        var weatherHtml = '<h2>' + ' WEATHER</h2>';
-                        weatherHtml += '<p>temperature: ' + result.temp + '°C</p>';
-                        weatherHtml += '<p>wind speed: ' + result.wind_speed + 'km/h</p>';
-                        weatherHtml += '<p>humidity: ' + result.humidity + '%</p>';
+                        var weatherHtml = '<h2>' + 'WEATHER</h2>';
+                        var temperatureCelsius = (result.main.temp - 273.15).toFixed(2);
+                        weatherHtml += '<p>Temperature: ' + temperatureCelsius + '°C</p>';
+                        weatherHtml += '<p>Wind Speed: ' + result.wind.speed + 'm/s</p>';
+                        weatherHtml += '<p>Humidity: ' + result.main.humidity + '%</p>';
                         $('#zuerich-info').html(weatherHtml);
                     },
                     error: function ajaxError(jqXHR) {
                         console.error('Error: ', jqXHR.responseText);
-                        $('#zuerich-info').html('Error while loading the weatherinformation');
+                        $('#zuerich-info').html('Error while loading the weather information');
                     }
                 });
             </script>
