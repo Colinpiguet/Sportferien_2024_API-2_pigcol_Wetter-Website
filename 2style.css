@@ -89,6 +89,15 @@ footer {
     display: flex;
 }
 
+.animation {
+    text-align: center;
+    background-color: #ffdfbdea;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    justify-content: center;
+    display: flex;
+}
+
 h2 {
     text-decoration: underline;
     font-size: 40px;
@@ -108,12 +117,37 @@ p {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.container2 {
+    display: flex;
+}
+
+.box2 {
+    flex: 1;
+    /* Jede Box soll gleich viel Platz einnehmen */
+    padding: 10px;
+    background-image: linear-gradient(to top right, rgb(251, 198, 154) 0%, #ffdfbdea 20%);
+    border: 20px solid;
+    border-color: white;
+    align-items: center;
+    border-radius: 5%;
+}
+
 .photo {
-    text-align: center;
-    border-left: 150px solid white;
-    border-right: 150px solid white;
-    border-bottom: 40px solid white;
-    border-top: 60px solid white;
+    width: 50%;
+    /* Setzen Sie die Breite auf 50% */
+    border-radius: 5%;
+}
+
+.photo img {
+    width: 100%;
+    /* Das Bild auf 100% der Breite des übergeordneten Elements einstellen */
+    height: auto;
+    border-radius: 10%;
+}
+
+.section {
+    display: flex;
+    flex: 1;
 }
 
 /*----------------------------------------------------------------------------------------------------------------------------------*/
@@ -205,7 +239,7 @@ p {
     width: 2vmin;
     height: 45%;
     top: 5%;
-    left: 50%;
+    left: 47%;
     transform: translateX(-50%);
 }
 
@@ -214,7 +248,7 @@ p {
     width: 1.2vmin;
     height: 45%;
     top: 5%;
-    left: 50%;
+    left: 49%;
     transform: translateX(-50%);
 }
 
@@ -223,7 +257,7 @@ p {
     width: 0.8vmin;
     height: 45%;
     top: 5%;
-    left: 50%;
+    left: 49%;
     transform: translateX(-50%);
 }
 
