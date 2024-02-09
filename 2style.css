@@ -123,7 +123,6 @@ p {
 
 .box2 {
     flex: 1;
-    /* Jede Box soll gleich viel Platz einnehmen */
     padding: 10px;
     background-image: linear-gradient(to top right, rgb(251, 198, 154) 0%, #ffdfbdea 20%);
     border: 20px solid;
@@ -134,20 +133,177 @@ p {
 
 .photo {
     width: 50%;
-    /* Setzen Sie die Breite auf 50% */
     border-radius: 5%;
 }
 
 .photo img {
     width: 100%;
-    /* Das Bild auf 100% der Breite des übergeordneten Elements einstellen */
     height: auto;
     border-radius: 10%;
 }
 
+.animation {
+    position: relative;
+    overflow: hidden;
+}
+
+.animation img {
+    height: 60%;
+    width: 40%;
+}
+
+.movingImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Startposition */
+    opacity: 0.7;
+    /* Deckkraft verringern */
+    width: 100px;
+    /* Breite der Wolkenbilder */
+    height: 100px;
+    /* Automatische Höhe entsprechend der Breite */
+}
+
+
 .section {
     display: flex;
     flex: 1;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+/* Clouds */
+
+@keyframes moveCloud1 {
+    0% {
+        left: -100px;
+    }
+
+    /* Startposition */
+    100% {
+        left: calc(100% + 100px);
+    }
+
+    /* Endposition */
+}
+
+@keyframes moveCloud2 {
+    0% {
+        left: -100px;
+    }
+
+    /* Startposition */
+    100% {
+        left: calc(100% + 200px);
+    }
+
+    /* Endposition */
+}
+
+@keyframes moveCloud3 {
+    0% {
+        left: -100px;
+    }
+
+    /* Startposition */
+    100% {
+        left: calc(100% + 300px);
+    }
+
+    /* Endposition */
+}
+
+#cloud1 {
+    animation: moveCloud1 5s linear infinite;
+    /* Animation starten */
+}
+
+#cloud2 {
+    animation: moveCloud2 7s linear infinite;
+    /* Animation starten */
+}
+
+#cloud3 {
+    animation: moveCloud3 9s linear infinite;
+    /* Animation starten */
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+/* Clear */
+
+@keyframes moveSun {
+    0% {
+        left: -100px;
+    }
+
+    /* Startposition */
+    100% {
+        left: calc(100% + 100px);
+    }
+
+    /* Endposition */
+}
+
+#sun {
+    animation: moveSun 5s linear infinite;
+    /* Animation starten */
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+/* Rain */
+@keyframes moveRainCloud1 {
+    0% {
+        left: -100px;
+    }
+
+    /* Startposition */
+    100% {
+        left: calc(100% + 100px);
+    }
+
+    /* Endposition */
+}
+
+@keyframes moveRainCloud2 {
+    0% {
+        left: -100px;
+    }
+
+    /* Startposition */
+    100% {
+        left: calc(100% + 200px);
+    }
+
+    /* Endposition */
+}
+
+@keyframes moveRainCloud3 {
+    0% {
+        left: -100px;
+    }
+
+    /* Startposition */
+    100% {
+        left: calc(100% + 300px);
+    }
+
+    /* Endposition */
+}
+
+#rainCloud1 {
+    animation: moveRainCloud1 5s linear infinite;
+    /* Animation starten */
+}
+
+#rainCloud2 {
+    animation: moveRainCloud2 7s linear infinite;
+    /* Animation starten */
+}
+
+#rainCloud3 {
+    animation: moveRainCloud3 9s linear infinite;
+    /* Animation starten */
 }
 
 /*----------------------------------------------------------------------------------------------------------------------------------*/

@@ -31,7 +31,7 @@
     <div class="container">
         <!-- - - - - - - - - - - - Erste Spalte Start - - - - - - - - - - - -->
         <div class="box api">
-            <div id="zuerich-info">Weather information is loading...</div>
+            <div id="info">Weather information is loading...</div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script>
                 $.ajax({
@@ -47,11 +47,11 @@
                         weatherHtml += '<p>temperature: ' + temperatureCelsius + '°C</p>';
                         weatherHtml += '<p>wind speed: ' + result.wind.speed + 'km/h</p>';
                         weatherHtml += '<p>humidity: ' + result.main.humidity + '%</p>';
-                        $('#zuerich-info').html(weatherHtml);
+                        $('#info').html(weatherHtml);
                     },
                     error: function ajaxError(jqXHR) {
                         console.error('Error: ', jqXHR.responseText);
-                        $('#zuerich-info').html('Error while loading the weather information');
+                        $('#info').html('Error while loading the weather information');
                     }
                 });
             </script>
@@ -81,25 +81,25 @@
 
         <!-- - - - - - - - - - - - Zweite Spalte Start - - - - - - - - - - - -->
         <div class="box time">
-            <div id="zuerich-time">City information is loading...</div>
+            <div id="time">City information is loading...</div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script>
                 var city = 'Dubai';
                 $.ajax({
                     method: 'GET',
                     url: 'https://api.api-ninjas.com/v1/city?name=' + city,
-                    headers: { 'X-Api-Key': 'xFpGPYfW6e0AbBuUqMSMXQ==iksODiXlk7YwgmL7' },
+                    headers: { 'X-Api-Key': 'XWcKrVsexY5n4D1jf+62wA==IcOG7a9RIhQimMoX' },
                     contentType: 'application/json',
                     success: function (result) {
                         var timeHtml = '<h2>' + ' CITY </h2>';
                         timeHtml += '<p>country: ' + result[0].country + '</p>';
                         timeHtml += '<p>population: ' + result[0].population + '</p>';
                         timeHtml += '<p>is capital: ' + result[0].is_capital + '</p>';
-                        $('#zuerich-time').html(timeHtml);
+                        $('#time').html(timeHtml);
                     },
                     error: function ajaxError(jqXHR) {
                         console.error('Error: ', jqXHR.responseText);
-                        $('#zuerich-time').html('Error while loading the timeinformation');
+                        $('#time').html('Error while loading the timeinformation');
                     }
                 });
             </script>
@@ -110,7 +110,44 @@
 
     <div class="container2">
 
-        <div class='box2 animation'>animation</div>
+        <div class="box2 animation">
+            <div id="condition">Condition information is loading...</div>
+            <script>
+                $.ajax({
+                    method: 'GET',
+                    url: 'https://api.openweathermap.org/data/2.5/weather?q=Dubai&appid=f39c7ffc405fe7cfff9462730f188fb1',
+                    dataType: 'json',
+                    success: function (result) {
+                        const weatherCondition = result.weather[0].main;
+                        let conditionHtml = '';
+
+                        if (weatherCondition === "Rain") {
+                            conditionHtml += '<img src="images/rainCloud1.png" class="movingImage" id="rainCloud1">'
+                            conditionHtml += '<img src="images/rainCloud2.png" class="movingImage" id="rainCloud2">'
+                            conditionHtml += '<img src="images/rainCloud3.png" class="movingImage" id="rainCloud3">';
+                        } else if (weatherCondition === "Clouds") {
+                            conditionHtml += '<img src="images/Cloud1.png" class="movingImage" id="cloud1">'
+                            conditionHtml += '<img src="images/cloud2.png" class="movingImage" id="cloud2">'
+                            conditionHtml += '<img src="images/cloud3.png" class="movingImage" id="cloud3">';
+                        } else if (weatherCondition === "Clear") {
+                            conditionHtml += '<img src="images/sun.png" class="movingImage" id="sun">';
+                        } else if (weatherCondition === "Dezzle") {
+                            conditionHtml += '<img src="images/dezzleRainCloud1.png" class="movingImage" id="dezzleRainCloud1">'
+                            conditionHtml += '<img src="images/dezzleRrainCloud2.png" class="movingImage" id="dezzleRainCloud2">'
+                            conditionHtml += '<img src="images/dezzleRainCloud3.png" class="movingImage" id="dezzleRainCloud3">';
+                        } else {
+                            conditionHtml += '<img src="images/sun.png" class="movingImage" id="sun">';
+                        }
+
+                        $('#condition').html(conditionHtml);
+                    },
+                    error: function ajaxError(jqXHR) {
+                        console.error('Error: ', jqXHR.responseText);
+                        $('#condition').html('Error while loading the weather condition');
+                    }
+                });
+            </script>
+        </div>
         <div class='box2 photo'> <img src="images/dubai.jpg"></div>
 
     </div>
