@@ -308,6 +308,63 @@ p {
 
 /*----------------------------------------------------------------------------------------------------------------------------------*/
 
+/* Drizzle */
+@keyframes moveDrizzleCloud1 {
+    0% {
+        left: -100px;
+    }
+
+    /* Startposition */
+    100% {
+        left: calc(100% + 100px);
+    }
+
+    /* Endposition */
+}
+
+@keyframes moveDrizzleCloud2 {
+    0% {
+        left: -100px;
+    }
+
+    /* Startposition */
+    100% {
+        left: calc(100% + 200px);
+    }
+
+    /* Endposition */
+}
+
+@keyframes moveDrizzleCloud3 {
+    0% {
+        left: -100px;
+    }
+
+    /* Startposition */
+    100% {
+        left: calc(100% + 300px);
+    }
+
+    /* Endposition */
+}
+
+#drizzleCloud1 {
+    animation: moveDrizzleCloud1 5s linear infinite;
+    /* Animation starten */
+}
+
+#drizzleCloud2 {
+    animation: moveDrizzleCloud2 7s linear infinite;
+    /* Animation starten */
+}
+
+#drizzleCloud3 {
+    animation: moveDrizzleCloud3 9s linear infinite;
+    /* Animation starten */
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+
 /* Styles für den Uhr-Container */
 .clock {
     position: relative;
