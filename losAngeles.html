@@ -15,7 +15,7 @@
 <body>
     <!-- - - - - - - - - - - - Kopfzeile Start - - - - - - - - - - - -->
     <header>
-        <!-- Text Start -->
+        <!-- Text and navigation Start -->
         <div>
             <div class="navigation">
                 <div class="links"><a href="rioDeJaneiro.html" title="Links"><img src="images/links.png"></a></div>
@@ -24,7 +24,7 @@
             </div>
             <h3>Los Angeles</h3>
         </div>
-        <!-- Text Ende -->
+        <!-- Text and navigation end -->
     </header>
     <!-- - - - - - - - - - - - Kopfzeile Ende - - - - - - - - - - - -->
 
@@ -34,12 +34,15 @@
             <div id="info">Weather information is loading...</div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script>
+                // Made with example from API-Ninjas and idees from ChatGPT
+                //Ajax request
                 $.ajax({
                     method: 'GET',
+                    // The url with the API-Key inclouded
                     url: 'https://api.openweathermap.org/data/2.5/weather?q=Los Angeles&appid=f39c7ffc405fe7cfff9462730f188fb1',
-                    dataType: 'json', // Setzen Sie dataType auf 'json', um die Daten automatisch zu parsen
+                    dataType: 'json',
                     success: function (result) {
-                        console.log(result); // Überprüfen Sie die Antwort in der Konsole
+                        console.log(result);
                         var weatherHtml = '<h2>' + 'WEATHER</h2>';
                         var temperatureCelsius = (result.main.temp - 273.15).toFixed(2);
                         weatherHtml += '<p>main weather: ' + result.weather[0].main + '</p>';
@@ -47,6 +50,7 @@
                         weatherHtml += '<p>temperature: ' + temperatureCelsius + '°C</p>';
                         weatherHtml += '<p>wind speed: ' + result.wind.speed + 'km/h</p>';
                         weatherHtml += '<p>humidity: ' + result.main.humidity + '%</p>';
+                        // Data gets added to the id 'info'
                         $('#info').html(weatherHtml);
                     },
                     error: function ajaxError(jqXHR) {
@@ -85,9 +89,11 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script>
                 var city = 'Los Angeles';
+                //Ajax request
                 $.ajax({
                     method: 'GET',
                     url: 'https://api.api-ninjas.com/v1/city?name=' + city,
+                    // API-Key
                     headers: { 'X-Api-Key': 'XWcKrVsexY5n4D1jf+62wA==IcOG7a9RIhQimMoX' },
                     contentType: 'application/json',
                     success: function (result) {
@@ -95,6 +101,7 @@
                         timeHtml += '<p>country: ' + result[0].country + '</p>';
                         timeHtml += '<p>population: ' + result[0].population + '</p>';
                         timeHtml += '<p>is capital: ' + result[0].is_capital + '</p>';
+                        // Data gets added to the id 'time'
                         $('#time').html(timeHtml);
                     },
                     error: function ajaxError(jqXHR) {
@@ -113,14 +120,17 @@
         <div class="box2 animation">
             <div id="condition">Condition information is loading...</div>
             <script>
+                // Made with example from API-Ninjas and idees from ChatGPT
+                //Ajax request
                 $.ajax({
                     method: 'GET',
+                    // The url with the API-Key inclouded
                     url: 'https://api.openweathermap.org/data/2.5/weather?q=Los Angeles&appid=f39c7ffc405fe7cfff9462730f188fb1',
                     dataType: 'json',
                     success: function (result) {
                         const weatherCondition = result.weather[0].main;
                         let conditionHtml = '';
-
+                        // Depending on weather condition diffrent animation 
                         if (weatherCondition === "Rain") {
                             conditionHtml += '<img src="images/rainCloud1.png" class="movingImage" id="rainCloud1">'
                             conditionHtml += '<img src="images/rainCloud2.png" class="movingImage" id="rainCloud2">'
@@ -135,10 +145,14 @@
                             conditionHtml += '<img src="images/dezzleCloud1.png" class="movingImage" id="drizzleCloud1">'
                             conditionHtml += '<img src="images/dezzleCloud2.png" class="movingImage" id="drizzleCloud2">'
                             conditionHtml += '<img src="images/dezzleCloud3.png" class="movingImage" id="drizzleCloud3">';
+                        } else if (weatherCondition === "Mist") {
+                            conditionHtml += '<img src="images/Cloud1.png" class="movingImage" id="cloud1">'
+                            conditionHtml += '<img src="images/cloud2.png" class="movingImage" id="cloud2">'
+                            conditionHtml += '<img src="images/cloud3.png" class="movingImage" id="cloud3">';
                         } else {
                             conditionHtml += '<img src="images/sun.png" class="movingImage" id="sun">';
                         }
-
+                        // Data gets added to the id 'condition'
                         $('#condition').html(conditionHtml);
                     },
                     error: function ajaxError(jqXHR) {
@@ -154,11 +168,11 @@
 
     <!-- - - - - - - - - - - - Fusszeile Start - - - - - - - - - - - -->
     <footer>
-        <!-- Text Start -->
+        <!-- Text start -->
         <div>
             <h1>Sportferienprojekt 2024 von Colin Piguet</h1>
         </div>
-        <!-- Text Ende -->
+        <!-- Text end -->
     </footer>
     <!-- - - - - - - - - - - - Fusszeile Ende - - - - - - - - - - - -->
 

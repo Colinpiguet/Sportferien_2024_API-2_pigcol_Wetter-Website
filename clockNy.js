@@ -1,3 +1,11 @@
+/*
+File: clockNy.js
+Description: JavaScript file for the analog clock of NewYork.
+Author: Colin Piguet
+Date: February 23, 2024
+Version: 1.0
+*/
+
 // Function to update the rotation of clock hands
 function updateClockHand(selector, rotation) {
     const hand = document.querySelector(selector);

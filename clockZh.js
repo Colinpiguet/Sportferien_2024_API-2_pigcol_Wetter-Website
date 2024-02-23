@@ -1,3 +1,11 @@
+/*
+File: clockZh.js
+Description: JavaScript file for the analog clock of Zurich.
+Author: Colin Piguet
+Date: February 23, 2024
+Version: 1.0
+*/
+
 // Function to update the rotation of clock hands
 function updateClockHand(selector, rotation) {
   const hand = document.querySelector(selector);
@@ -17,7 +25,6 @@ function updateClock() {
   updateClockHand('.second-hand', (360 / 60) * seconds);
 }
 
-// Function to set a random background image based on the time of day
 window.onload = function() {
   const now = new Date();
   const hours = now.getHours() % 24 || 24; // Convert to 24-hour format

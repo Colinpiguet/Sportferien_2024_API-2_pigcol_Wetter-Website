@@ -4,6 +4,7 @@ body {
     overflow-x: hidden;
 }
 
+/*Styles for footer and header*/
 header,
 footer {
     text-align: center;
@@ -15,13 +16,13 @@ footer {
 /* ---------------------------------------------------------------------------------------------------------------*/
 /* Navigation*/
 
-/* Navigation mit Pfeil- und Listenicons */
+/* Navigation with Home Button and Arrows */
 .navigation {
     display: flex;
     justify-content: space-between;
-    /* Alle Elemente gleichmässig verteilen */
+    /* Distribute all elements evenly */
     align-items: center;
-    /* Elemente zentrieren vertikal */
+    /* Center elements vertically */
 }
 
 .navigation a:hover img {
@@ -38,9 +39,9 @@ footer {
 @media only screen and (max-width: 720px) {
     .navigation {
         flex-direction: column;
-        /* Auf Stapel umschalten, wenn Bildschirm zu klein */
+        /* Switch to stack if screen is too small*/
         align-items: flex-start;
-        /* Links ausrichten, wenn aufgestapelt */
+        /* Align left when stacked */
     }
 
     .home img,
@@ -48,7 +49,7 @@ footer {
     .rechts img {
         height: auto;
         width: auto;
-        /* Automatische Höhe und Breite für kleine Bildschirme */
+        /* Automatic height and width for small screens */
         max-height: 70px;
         max-width: 70px;
     }
@@ -117,10 +118,12 @@ p {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+/*container for weather animation and photo*/
 .container2 {
     display: flex;
 }
 
+/*Box for  the weather animation and photo*/
 .box2 {
     flex: 1;
     padding: 10px;
@@ -142,6 +145,7 @@ p {
     border-radius: 10%;
 }
 
+/*Weather animation styles*/
 .animation {
     position: relative;
     overflow: hidden;
@@ -158,11 +162,11 @@ p {
     left: 0;
     /* Startposition */
     opacity: 0.7;
-    /* Deckkraft verringern */
+    /* Reduce opacity*/
     width: 100px;
-    /* Breite der Wolkenbilder */
+    /* Width of the cloud images */
     height: 100px;
-    /* Automatische Höhe entsprechend der Breite */
+    /* Automatic height according to the width*/
 }
 
 
@@ -215,17 +219,17 @@ p {
 
 #cloud1 {
     animation: moveCloud1 5s linear infinite;
-    /* Animation starten */
+    /* Animation start */
 }
 
 #cloud2 {
     animation: moveCloud2 7s linear infinite;
-    /* Animation starten */
+    /* Animation start */
 }
 
 #cloud3 {
     animation: moveCloud3 9s linear infinite;
-    /* Animation starten */
+    /* Animation start */
 }
 
 
@@ -247,7 +251,7 @@ p {
 
 #sun {
     animation: moveSun 5s linear infinite;
-    /* Animation starten */
+    /* Animation start */
 }
 
 /*----------------------------------------------------------------------------------------------------------------------------------*/
@@ -293,17 +297,17 @@ p {
 
 #rainCloud1 {
     animation: moveRainCloud1 5s linear infinite;
-    /* Animation starten */
+    /* Animation start */
 }
 
 #rainCloud2 {
     animation: moveRainCloud2 7s linear infinite;
-    /* Animation starten */
+    /* Animation start */
 }
 
 #rainCloud3 {
     animation: moveRainCloud3 9s linear infinite;
-    /* Animation starten */
+    /* Animation start */
 }
 
 /*----------------------------------------------------------------------------------------------------------------------------------*/
@@ -350,22 +354,22 @@ p {
 
 #drizzleCloud1 {
     animation: moveDrizzleCloud1 5s linear infinite;
-    /* Animation starten */
+    /* Animation start */
 }
 
 #drizzleCloud2 {
     animation: moveDrizzleCloud2 7s linear infinite;
-    /* Animation starten */
+    /* Animation start */
 }
 
 #drizzleCloud3 {
     animation: moveDrizzleCloud3 9s linear infinite;
-    /* Animation starten */
+    /* Animation start */
 }
 
 /*----------------------------------------------------------------------------------------------------------------------------------*/
 
-/* Styles für den Uhr-Container */
+/* Styles for the Clock-container */
 .clock {
     position: relative;
     width: 100vmin;
@@ -375,7 +379,7 @@ p {
     display: flex;
 }
 
-/* Styles für relative;äußeren Kreis des Zifferblatts */
+/* Styles für relative;äusseren Kreis des Zifferblatts */
 .outer-clock-face {
     position: absolute;
     width: 50%;
@@ -384,7 +388,7 @@ p {
     border-radius: 50%;
 }
 
-/* Styles für die Uhrmarkierungen (Stundenindikatoren) */
+/* Styles for the markings */
 .marking {
     position: absolute;
     background: #fffefe;
@@ -396,7 +400,7 @@ p {
     z-index: 1;
 }
 
-/* Spezifische Stile für einzelne Markierungen */
+/* Position of the markings */
 .marking-one {
     top: 85%;
 }
@@ -415,7 +419,7 @@ p {
     transform: rotate(270deg);
 }
 
-/* Styles für den inneren Kreis des Zifferblatts */
+/* Styles for inner clock face */
 .inner-clock-face {
     position: absolute;
     width: 100%;
@@ -429,6 +433,7 @@ p {
     z-index: 0;
 }
 
+/*Styles for the point in the middle*/
 .point {
     position: relative;
     width: 4vmin;
@@ -440,14 +445,14 @@ p {
     border-radius: 100px;
 }
 
-/* Uhrzeiger (Stunden-, Minuten- und Sekundenzeiger) */
+/* Styles for the hand*/
 .hand {
     position: absolute;
     background: #fffcfc;
     transform-origin: 50% 100%;
 }
 
-/* Stundenzeiger */
+/* hour hand */
 .hour-hand {
     width: 2vmin;
     height: 45%;
@@ -456,7 +461,7 @@ p {
     transform: translateX(-50%);
 }
 
-/* Minutenzeiger */
+/* minute hand */
 .min-hand {
     width: 1.2vmin;
     height: 45%;
@@ -465,7 +470,7 @@ p {
     transform: translateX(-50%);
 }
 
-/* Sekundenzeiger */
+/* second hand */
 .second-hand {
     width: 0.8vmin;
     height: 45%;
@@ -476,7 +481,7 @@ p {
 
 /*---------------------------------------------------------------------------------------------------------------------*/
 
-/*Damit die Grösse angepasst wird wenn man das Fenster verkleinert*/
+/*So that the size is adjusted when the window is reduced*/
 @media only screen and (max-width: 1200px) {
     .container {
         flex-direction: column;

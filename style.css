@@ -55,13 +55,10 @@ h3 {
     font-size: 30px;
 }
 
-/* Navigation mit Pfeil- und Listenicons */
+/* Navigation with arrow and list icons*/
 .navigation {
     display: flex;
     justify-content: space-between;
-    /* Alle Elemente gleichmäßig verteilen */
-    align-items: center;
-    /* Elemente zentrieren vertikal */
 }
 
 .navigation a:hover img {
@@ -78,21 +75,21 @@ h3 {
 @media only screen and (max-width: 720px) {
     .navigation {
         flex-direction: column;
-        /* Auf Stapel umschalten, wenn Bildschirm zu klein */
+        /* Switch to stack if screen is too small */
         align-items: flex-start;
-        /* Links ausrichten, wenn aufgestapelt */
+        /* Align left when stacked */
     }
 
     .home img,
     .links img,
     .rechts img {
         height: auto;
-        /* Automatische Höhe für kleine Bildschirme */
+        /* Automatic height for small screens*/
         width: auto;
-        /* Automatische Breite für kleine Bildschirme */
+        /* Automatic width for small screens */
         max-height: 70px;
-        /* Maximale Höhe für kleine Bildschirme */
+        /* Maximum height for small screens */
         max-width: 70px;
-        /* Maximale Breite für kleine Bildschirme */
+        /* Maximum width for small screens */
     }
 }
